@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greenhouse Crop Monitor</title>
+    <style>
+        body{
+            font-family: Arial;
+            background:#f2f7f3;
+            text-align:center;
+            padding:40px;
+        }
+        h1{ color:#2e7d32; }
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 0 15px rgba(0,0,0,0.1);
+            width:400px;
+            margin:auto;
+        }
+        button{
+            background:#2e7d32;
+            color:white;
+            padding:10px 20px;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+        }
+        img{ margin-top:20px; width:300px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>🌱 Crop Growth Monitor</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <br><br>
+        <button type="submit">Analyze Image</button>
+    </form>
+
+    {% if result %}
+        <h2>Prediction: {{ result }}</h2>
+        <h3>Vegetation Coverage: {{ coverage }}%</h3>
+    {% endif %}
+    {% if image_path %}
+
+    <img src="{{ image_path }}" width="400">
+    {% endif %}
+</div>
+
+</body>
+</html>
